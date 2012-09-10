@@ -12,7 +12,7 @@
 <div id="wrapper">
   <h1>equalize.js</h1>
   <h3>The jQuery plugin for equalizing the height <span>or width</span> of elements</h3>
-  <p>Created by <a href="https://github.com/tsvensen" target="_blank">Tim Svensen</a></p>
+  <div id="author"><iframe scrolling="no" frameborder="0" allowtransparency="true" src="http://platform.twitter.com/widgets/follow_button.1347008535.html#_=1347293944835&amp;id=twitter-widget-0&amp;lang=en&amp;screen_name=tsvensen&amp;show_count=false&amp;show_screen_name=true&amp;size=l" class="twitter-follow-button" style="width: 169px; height: 28px;" title="Twitter Follow Button" data-twttr-rendered="true"></iframe> <span>Created by <a href="https://github.com/tsvensen" target="_blank">Tim Svensen</a></span></div>
 
   <h2>Download</h2>
   <p><a href="https://github.com/tsvensen/equalize.js/zipball/master" target="_blank">Grab equalize.js</a> from github.</p>
@@ -65,7 +65,7 @@ $('.parent').equalize('innerWidth');</pre>
 <script src="js/equalize.js" type="text/javascript"></script>
 
 <script>
-  $(document).on('click', 'a', function(e) {
+  $(document).on('click', 'h2 a', function(e) {
     e.preventDefault();
 
     if (this.id === 'run-height') {
@@ -77,6 +77,7 @@ $('.parent').equalize('innerWidth');</pre>
     $(this).replaceWith('<span>ran</span>');
   });
 </script>
+
 
 <script>
   var _gaq = _gaq || [];
