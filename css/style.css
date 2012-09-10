@@ -147,6 +147,21 @@ pre {
 }
 
 
+#author {
+  overflow: hidden;
+  margin-bottom: 1.5em;
+}
+
+#author iframe { float: left; }
+
+#author span {
+  display: inline-block;
+  *display: block;
+  zoom: 1;
+
+  margin-top: 5px;
+}
+
 
 /* =============================================================================
    Non-Semantic Helper Classes
