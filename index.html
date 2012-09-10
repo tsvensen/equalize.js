@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>equalize.js</title>
+  <link href="css/style.css" rel="stylesheet" />
+  <link href='http://fonts.googleapis.com/css?family=Lato:700italic,900italic' rel='stylesheet' type='text/css'>
+</head>
+<body>
+
+
+<div id="wrapper">
+  <h1>equalize.js</h1>
+  <h3>The jQuery plugin for equalizing the height <span>or width</span> of elements</h3>
+  <p>Created by <a href="https://github.com/tsvensen" target="_blank">Tim Svensen</a></p>
+
+  <h2>Download</h2>
+  <p><a href="https://github.com/tsvensen/equalize.js/zipball/master" target="_blank">Grab equalize.js</a> from github.</p>
+
+  <h2>How to Use</h2>
+  <p>Call the plugin on the parent of the elements to equalize their height.</p>
+  <pre>$('#height-example').equalize();</pre>
+
+  <p>Equalize will accept any of the <a target="_blank" href="http://api.jquery.com/category/dimensions/">jQuery Dimension</a> methods: height, outerHeight, innerHeight, width, outerWidth, innerWidth.</p>
+
+  <pre>$('.parent').equalize('height'); // default, same as above
+$('.parent').equalize('outerHeight');
+$('.parent').equalize('innerHeight');
+$('.parent').equalize('width');
+$('.parent').equalize('outerWidth');
+$('.parent').equalize('innerWidth');</pre>
+
+  <h2>Height Example <a id="run-height" href="#height-example">run »</a></h2>
+  <pre>$('#height-example').equalize(); // defaults to height</pre>
+
+  <div id="height-example">
+    <div>equalize</div>
+    <div>equalize content height</div>
+    <div>equalize</div>
+    <div>equalize</div>
+    <div>equalize</div>
+    <div>equalize content</div>
+    <div>equalize</div>
+    <div>equalize</div>
+    <div>equalize content height</div>
+    <div>equalize</div>
+  </div>
+
+
+  <h2>Width Example <a id="run-width" href="#width-example">run »</a></h2>
+  <pre>$('#width-example').equalize('width');</pre>
+
+  <div id="width-example">
+    <div>Example</div>
+    <div>equalizing</div>
+    <div>the</div>
+    <div>width</div>
+  </div>
+</div>
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="js/libs/jquery-1.8.1.min.js"><\/script>')</script> </script>
+
+<script src="js/equalheight.js" type="text/javascript"></script>
+
+<script>
+  $(document).on('click', 'a', function(e) {
+    e.preventDefault();
+
+    if (this.id === 'run-height') {
+      $('#height-example').equalize(); // defaults to height
+    } else {
+      $('#width-example').equalize('width');
+    }
+
+    $(this).replaceWith('<span>ran</span>');
+  });
+</script>
+
+</body>
+</html>
