@@ -3,6 +3,9 @@
  * Author & copyright (c) 2012: Tim Svensen
  * Dual MIT & GPL license
  *
+ * Page: http://tsvensen.github.com/equalize.js
+ * Repo: https://github.com/tsvensen/equalize.js/
+ *
  * The jQuery plugin for equalizing the height or width of elements.
  *
  * Equalize will accept any of the jQuery Dimension methods:
