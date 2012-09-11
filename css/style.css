@@ -83,6 +83,7 @@ body { color: #333; padding-bottom: 3em; }
 
 h1, h2, h3 {
   font-family: 'Lato', Arial, sans-serif;
+  font-style: italic;
   font-weight: 700;
   margin: 0;
 }
