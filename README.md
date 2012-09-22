@@ -1,6 +1,6 @@
 # equalize.js
 
-The jQuery plugin for equalizing the height or width of elements. [See it in action](http://tsvensen.github.com/equalize.js)
+The jQuery plugin for equalizing the height or width of elements. [See it in action »](http://tsvensen.github.com/equalize.js).
 
 
 ## How to Use
@@ -34,6 +34,6 @@ $('.parent').equalize('innerWidth');</pre>
 
 # Legal
 
-Author & copyright (c) 2012: Tim Svensen
+Author & copyright (c) 2012: [Tim Svensen](http://timsvensen.com)
 
 Dual MIT & GPL license
