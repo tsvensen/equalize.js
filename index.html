@@ -16,8 +16,10 @@
 
   <a href="https://github.com/tsvensen/equalize.js/"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub"></a>
 
+
   <h2>Download</h2>
   <p>Equalize.js <a href="https://github.com/tsvensen/equalize.js/" target="_blank">on github</a>. Download it <a href="https://github.com/tsvensen/equalize.js/zipball/master/" target="_blank">here</a>.</p>
+
 
   <h2>How to Use</h2>
   <p>Call the plugin on the parent of the elements to equalize their height.</p>
@@ -32,10 +34,20 @@ $('.parent').equalize('width');
 $('.parent').equalize('outerWidth');
 $('.parent').equalize('innerWidth');</pre>
 
+
+  <h2>Advanced Usage</h2>
+  <p>Equalize will now accept a settings object to get the "minimum max dimension". By setting reset to true the height/width will be removed before determining the max. See the <a href="#run-advanced">advanced example</a> below.</p>
+
+  <pre>$('.parent').equalize({reset: true}); // default to height
+$('.parent').equalize({equalize: 'width', reset: true});</pre>
+
+  <p>This advanced usage is for dynamic instances where equalize is ran after elements are added or removed to maintain minimum max height or width.</p>
+
+
   <h2>Height Example <a id="run-height" href="#height-example">run »</a></h2>
   <pre>$('#height-example').equalize(); // defaults to height</pre>
 
-  <div id="height-example">
+  <div id="height-example" class="example">
     <div>equalize</div>
     <div>equalize content height</div>
     <div>equalize</div>
@@ -52,11 +64,29 @@ $('.parent').equalize('innerWidth');</pre>
   <h2>Width Example <a id="run-width" href="#width-example">run »</a></h2>
   <pre>$('#width-example').equalize('width');</pre>
 
-  <div id="width-example">
+  <div id="width-example" class="example">
     <div>Example</div>
     <div>equalizing</div>
     <div>the</div>
     <div>width</div>
+  </div>
+
+
+  <h2>Advanced Example <a id="run-advanced" href="#advanced-example">run »</a></h2>
+  <pre>$('#height-example').equalize({reset: true});</pre>
+  <p>Below the tallest div has a height of 200px, this will be removed before determining the max height, otherwise all elements would have a height of 200px.</p>
+
+  <div id="advanced-example" class="example">
+    <div>equalize</div>
+    <div>equalize content height</div>
+    <div style="height:200px;">equalize</div>
+    <div>equalize</div>
+    <div>equalize</div>
+    <div>equalize content</div>
+    <div>equalize</div>
+    <div>equalize</div>
+    <div>equalize content height</div>
+    <div>equalize</div>
   </div>
 </div>
 
@@ -70,7 +100,10 @@ $('.parent').equalize('innerWidth');</pre>
   $(document).on('click', 'h2 a', function(e) {
     e.preventDefault();
 
-    if (this.id === 'run-height') {
+    if (this.id === 'run-advanced') {
+      // reset all the heights to get the minimum max height
+      $('#advanced-example').equalize({reset: true});
+    } else if (this.id === 'run-height') {
       $('#height-example').equalize(); // defaults to height
     } else {
       $('#width-example').equalize('width');

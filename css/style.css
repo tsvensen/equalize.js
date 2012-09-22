@@ -89,7 +89,7 @@ h1, h2, h3 {
 }
 
 h1 {
-  font-size: 3.5em;
+  font-size: 4em;
   font-weight: 900;
   text-shadow: 2px 2px 3px #CCC;
 }
@@ -127,20 +127,9 @@ pre {
 #height-example,
 #width-example { overflow: hidden; }
 
-#height-example {
-  margin-bottom: 1.5em;
-}
+.example { margin-bottom: 1.5em; }
 
-#height-example div {
-  float: left;
-  text-align: center;
-  background: #DDD;
-  width: 60px;
-  margin: 10px;
-  padding: 10px;
-}
-
-#width-example div {
+.example div {
   float: left;
   text-align: center;
   background: #DDD;
@@ -148,6 +137,9 @@ pre {
   padding: 10px;
 }
 
+#advanced-example div,
+#height-example div { width: 60px; }
+/* #width-example div { } */
 
 #author {
   overflow: hidden;
