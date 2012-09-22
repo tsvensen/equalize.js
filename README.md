@@ -16,3 +16,7 @@ $('.parent').equalize('innerHeight');
 $('.parent').equalize('width');
 $('.parent').equalize('outerWidth');
 $('.parent').equalize('innerWidth');</pre>
+
+# Legal
+Author & copyright (c) 2012: Tim Svensen
+Dual MIT & GPL license
