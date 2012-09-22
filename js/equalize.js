@@ -15,27 +15,47 @@
  * EXAMPLE
  * $('.parent').equalize(); // defaults to 'height'
  * $('.parent').equalize('width'); // equalize the widths
+ *
+ * ADVANCED EXAMPLE
+ * Get the minimum max dimension by removing the existing height/width
+ * $('.parent').equalize({reset: true}); // equalize height by default, remove existing height, then determin max
+ * $('.parent').equalize({equalize: 'width', reset: true}); // equalize width, remove existing width, then determin max
  */
-(function($, window, document, undefined) {
+;(function($) {
 
-  $.fn.equalize = function(equalize) {
+  $.fn.equalize = function(options) {
     var $containers = this, // this is the jQuery object
-        equalize    = equalize || 'height',
-        type        = (equalize.indexOf('eight') > 0) ? 'height' : 'width';
+        reset       = false,
+        equalize,
+        type;
+
+    // when options are an object
+    if ($.isPlainObject(options)) {
+      equalize = options.equalize || 'height';
+      reset    = options.reset || false;
+    } else { // otherwise, a string was passed in or default to height
+      equalize = options || 'height';
+    }
 
     if (!$.isFunction($.fn[equalize])) { return false; }
+
+    // determine if the height or width is being equalized
+    type = (equalize.indexOf('eight') > 0) ? 'height' : 'width';
 
     return $containers.each(function() {
       var $children = $(this).children(),
           max = 0; // reset for each container
 
       $children.each(function() {
-        var value = $(this)[equalize]();  // call height(), outerHeight(), etc.
-        if (value > max) { max = value; } // update max
+        var $element = $(this),
+            value;
+        if (reset) { $element.css(type, ''); } // remove existing height/width dimension
+        value = $element[equalize]();          // call height(), outerHeight(), etc.
+        if (value > max) { max = value; }      // update max
       });
 
       $children.css(type, max +'px'); // add CSS to children
     });
   };
 
-}(jQuery, window, document));
+}(jQuery));
