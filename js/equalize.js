@@ -30,6 +30,7 @@
           max = 0; // reset for each container
 
       $children.each(function() {
+        $(this).css(equalize,''); //clear previously set value, in order to get the minimum possible.
         var value = $(this)[equalize]();  // call height(), outerHeight(), etc.
         if (value > max) { max = value; } // update max
       });
