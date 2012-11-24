@@ -25,6 +25,7 @@
 
   $.fn.equalize = function(options) {
     var $containers = this, // this is the jQuery object
+        children    = false,
         reset       = false,
         equalize,
         type;
@@ -32,6 +33,7 @@
     // when options are an object
     if ($.isPlainObject(options)) {
       equalize = options.equalize || 'height';
+      children = options.children || false;
       reset    = options.reset || false;
     } else { // otherwise, a string was passed in or default to height
       equalize = options || 'height';
@@ -45,6 +47,7 @@
     return $containers.each(function() {
       var $children = $(this).children(),
           max = 0; // reset for each container
+      if (children) { $children = $(this).find(children); }
 
       $children.each(function() {
         var $element = $(this),
