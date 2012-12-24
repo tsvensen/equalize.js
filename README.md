@@ -21,6 +21,9 @@ $('.parent').equalize({equalize: 'width', reset: true});</pre>
 
 This advanced usage is for dynamic instances where equalize is ran after elements are added or removed to maintain minimum max height or width.
 
+Equalize the .parent's child element. See @larsbo's <a href="http://jsfiddle.net/4QTNP/3/">example</a>.
+<pre>$('.parent').equalize({children: 'p'}); // equalize height of paragraphs within .parent</pre>
+
 
 ## Examples
 

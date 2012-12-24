@@ -16,10 +16,14 @@
  * $('.parent').equalize(); // defaults to 'height'
  * $('.parent').equalize('width'); // equalize the widths
  *
- * ADVANCED EXAMPLE
+ * ADVANCED EXAMPLES
  * Get the minimum max dimension by removing the existing height/width
  * $('.parent').equalize({reset: true}); // equalize height by default, remove existing height, then determin max
  * $('.parent').equalize({equalize: 'width', reset: true}); // equalize width, remove existing width, then determin max
+ *
+ * Equalize internal child elements
+ * From @larsbo : http://jsfiddle.net/4QTNP/3/
+ * $('.parent').equalize({children: 'p'}); // equalize height of paragraphs within .parent
  */
 ;(function($) {
 
@@ -45,9 +49,9 @@
     type = (equalize.indexOf('eight') > 0) ? 'height' : 'width';
 
     return $containers.each(function() {
-      var $children = $(this).children(),
+          // when children exist, equalize the passed in child elements, otherwise equalize the children
+      var $children = (children) ? $(this).find(children) : $(this).children(),
           max = 0; // reset for each container
-      if (children) { $children = $(this).find(children); }
 
       $children.each(function() {
         var $element = $(this),
