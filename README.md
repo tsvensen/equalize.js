@@ -39,4 +39,4 @@ $('.parent').equalize('innerWidth');</pre>
 
 Author & copyright (c) 2012: [Tim Svensen](http://timsvensen.com)
 
-Dual MIT & GPL license
+Dual MIT & GPLv2 license
