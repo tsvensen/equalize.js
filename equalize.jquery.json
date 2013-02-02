@@ -1,0 +1,35 @@
+{
+  'name': 'equalize',
+  'title': 'equalize',
+  'description': 'The jQuery plugin for equalizing the height or width of your elements',
+
+  'keywords': [
+    'ui',
+    'equalize',
+    'equal'
+    'height'
+    'width'
+    'layout'
+    ],
+
+  'version': '1.0.0',
+  'author': {
+    'name': 'Tim Svensen',
+    'url': 'http://timsvensen.com'
+  },
+
+  'licenses': [{
+    'type': 'MIT',
+    'url': 'http://opensource.org/licenses/MIT'
+  }, {
+    'type': 'GPLv2',
+    'url': 'http://opensource.org/licenses/GPL-2.0'
+  }],
+
+  'homepage': 'https://github.com/tsvensen/equalize.js',
+  'demo': 'http://tsvensen.github.com/equalize.js/',
+
+  'dependencies': {
+    'jquery': '>=1.4.x',
+  }
+}
