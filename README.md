@@ -24,6 +24,13 @@ This advanced usage is for dynamic instances where equalize is ran after element
 Equalize the .parent's child element. See @larsbo's <a href="http://jsfiddle.net/4QTNP/3/">example</a>.
 <pre>$('.parent').equalize({children: 'p'}); // equalize height of paragraphs within .parent</pre>
 
+## Breakpoint
+
+This option should be usefull in responsive case where you don't want to equalize elements under a window width breakpoint. It must be used in conjunction with the 'reset' option.
+
+There is little problem in using the window width, that is not the browser screen width used in CSS Media query.
+
+Generally the window width is 15px less larger that the browser screen size because of the vertical scrolling bar. So you should use a breakpoint value less larger than the breakpoint you want to target in your CSS.
 
 ## Examples
 
