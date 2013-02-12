@@ -24,6 +24,13 @@ This advanced usage is for dynamic instances where equalize is ran after element
 Equalize the .parent's child element. See @larsbo's <a href="http://jsfiddle.net/4QTNP/3/">example</a>.
 <pre>$('.parent').equalize({children: 'p'}); // equalize height of paragraphs within .parent</pre>
 
+## Breakpoint
+
+This option should be usefull in responsive case where you don't want to equalize elements under a viewport width breakpoint. It must be used in conjunction with the 'reset' option.
+
+<pre>$('.parent').equalize({equalize: 'width', reset: true, breakpoint: 767}); // equalize elements width only if the viewport is larger than 767px</pre>
+
+Note that the method to get the viewport width is not supported for IE8 or less, so we "fallback" to the "clientWidth" that can be different from the viewport, depending if the vertical scrolling is displayed or not.
 
 ## Examples
 
@@ -34,6 +41,9 @@ $('.parent').equalize('width');
 $('.parent').equalize('outerWidth');
 $('.parent').equalize('innerWidth');</pre>
 
+## Safari issue
+
+Safari raise the "ready" jQuery event even if it have not yet downloaded all assets finded in the DOM, so if you try to equalize element that depends from some asset width or height, you should use "equalize.js" in the "load" jQuery event where all assets will be fully downloaded.
 
 # Legal
 
