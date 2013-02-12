@@ -28,9 +28,7 @@
  * 
  * BREAKPOINT
  * This option should be usefull in responsive case where you don't want to equalize elements under a window width breakpoint. It must be used in conjunction with the 'reset' option.
- * There is little problem in using the window width, that is not the browser screen width used in CSS Media query. 
- * Generally the window width is 15px less larger that the browser screen size because of the vertical scrolling bar. 
- * So you should use a breakpoint value less larger than the breakpoint you want to target in your CSS.
+ * Note that the method to get the viewport width is not supported for IE8 or less, so we "fallback" to the "clientWidth" that can be different from the viewport, depending if the vertical scrolling is displayed or not.
  */
 ;(function($) {
 
@@ -39,7 +37,7 @@
         children    = false,
         reset       = false,
         breakpoint  = null,
-        win_width   = $(window).innerWidth(),
+        viewport_width   = (window.innerWidth || document.documentElement.clientWidth),
         equalize,
         type;
 
@@ -70,14 +68,14 @@
         if (reset) { $element.css(type, ''); } // remove existing height/width dimension
 
         // Continue if window width is larger than the breakpoint
-        if(!breakpoint || win_width > breakpoint) {
+        if(!breakpoint || viewport_width > breakpoint) {
           value = $element[equalize]();          // call height(), outerHeight(), etc.
           if (value > max) { max = value; }      // update max
         }
       });
 
       // add CSS to children only if window width is larger than the breakpoint
-      if(!breakpoint || win_width > breakpoint) {
+      if(!breakpoint || viewport_width > breakpoint) {
         $children.css(type, max +'px');
       }
     });
