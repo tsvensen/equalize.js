@@ -46,7 +46,7 @@
     if (!$.isFunction($.fn[equalize])) { return false; }
 
     // determine if the height or width is being equalized
-    type = (equalize.indexOf('eight') > 0) ? 'height' : 'width';
+    type = (equalize.indexOf('height') > 0) ? 'height' : 'width';
 
     return $containers.each(function() {
           // when children exist, equalize the passed in child elements, otherwise equalize the children
