@@ -52,7 +52,13 @@
           // when children exist, equalize the passed in child elements, otherwise equalize the children
       var $children = (children) ? $(this).find(children) : $(this).children(),
           max = 0; // reset for each container
-
+      
+      // disable resize on mobile devices. (This is usefull when displaying items verticaly on mobile devices.
+      if($(this).is(".s-noequalize") && $(window).width() < 767) {
+          $children.css(type, '');
+          return;
+      }
+      
       $children.each(function() {
         var $element = $(this),
             value;

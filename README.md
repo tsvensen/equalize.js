@@ -24,6 +24,22 @@ This advanced usage is for dynamic instances where equalize is ran after element
 Equalize the .parent's child element. See @larsbo's <a href="http://jsfiddle.net/4QTNP/3/">example</a>.
 <pre>$('.parent').equalize({children: 'p'}); // equalize height of paragraphs within .parent</pre>
 
+## Mobile exceptions
+
+In some cases you may want to block and display a series of columns vertically on mobile devices.  In this case the equalize heights function may not be desired.
+
+You could get around this with conditional scripts but that will not respond to resize events correctly.  Instead use the new s-noequalize helper class.
+
+Just add the class s-noequalize to your parent item and test.
+
+## Resize support
+
+Some items may have dynamic items that change height as the window is resized.  For the more efficient resizing support use the <a href="https://github.com/louisremi/jquery-smartresize">jquery-smartresize</a> along with this.
+
+Example
+<pre>$(window).smartresize(function(){
+  $('.equalize').equalize({reset:true, children:'>.content-box', equalize:'outerHeight'});
+});</pre>
 
 ## Examples
 
