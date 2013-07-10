@@ -59,8 +59,6 @@
 
       for (var i = 0; i < iterations; i++) {
         max = 0;
-        console.log(i * groupSize);
-        console.log($children.slice(i * groupSize, (i * groupSize) + groupSize));
         $children.slice(i * groupSize, (i * groupSize) + groupSize).each(function() {
           var $element = $(this),
               value;
