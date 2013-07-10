@@ -31,6 +31,7 @@
     var $containers = this, // this is the jQuery object
         children    = false,
         reset       = false,
+        group       = false,
         equalize,
         type;
 
@@ -39,6 +40,7 @@
       equalize = options.equalize || 'height';
       children = options.children || false;
       reset    = options.reset || false;
+      group    = options.group || false;
     } else { // otherwise, a string was passed in or default to height
       equalize = options || 'height';
     }
@@ -51,17 +53,24 @@
     return $containers.each(function() {
           // when children exist, equalize the passed in child elements, otherwise equalize the children
       var $children = (children) ? $(this).find(children) : $(this).children(),
+          iterations = (group) ? Math.floor($children.length / group) : 1,
+          groupSize = (group) ? group : $children.length,
           max = 0; // reset for each container
 
-      $children.each(function() {
-        var $element = $(this),
-            value;
-        if (reset) { $element.css(type, ''); } // remove existing height/width dimension
-        value = $element[equalize]();          // call height(), outerHeight(), etc.
-        if (value > max) { max = value; }      // update max
-      });
+      for (var i = 0; i < iterations; i++) {
+        max = 0;
+        console.log(i * groupSize);
+        console.log($children.slice(i * groupSize, (i * groupSize) + groupSize));
+        $children.slice(i * groupSize, (i * groupSize) + groupSize).each(function() {
+          var $element = $(this),
+              value;
+          if (reset) { $element.css(type, ''); } // remove existing height/width dimension
+          value = $element[equalize]();          // call height(), outerHeight(), etc.
+          if (value > max) { max = value; }      // update max
+        });
 
-      $children.css(type, max +'px'); // add CSS to children
+        $children.slice(i * groupSize, (i * groupSize) + groupSize).css(type, max +'px'); // add CSS to children
+      }
     });
   };
 
