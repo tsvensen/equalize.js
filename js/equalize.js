@@ -53,7 +53,7 @@
     return $containers.each(function() {
           // when children exist, equalize the passed in child elements, otherwise equalize the children
       var $children = (children) ? $(this).find(children) : $(this).children(),
-          iterations = (group) ? Math.floor($children.length / group) : 1,
+          iterations = (group) ? Math.ceil($children.length / group) : 1,
           groupSize = (group) ? group : $children.length,
           max = 0; // reset for each container
 

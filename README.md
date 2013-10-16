@@ -25,7 +25,7 @@ Equalize the .parent's child element. See @larsbo's <a href="http://jsfiddle.net
 <pre>$('.parent').equalize({children: 'p'}); // equalize height of paragraphs within .parent</pre>
 
 You can even evaluate your children in groups:
-<pre>$('.parent').equalize({children: 'p', group: 3}); // equalize height of paragraphs in groups of 3 elements wiithin .parent</pre> 
+<pre>$('.parent').equalize({children: 'p', group: 3}); // equalize height of paragraphs in groups of 3 elements within .parent</pre> 
 
 
 ## Examples
