@@ -24,6 +24,10 @@
  * Equalize internal child elements
  * From @larsbo : http://jsfiddle.net/4QTNP/3/
  * $('.parent').equalize({children: 'p'}); // equalize height of paragraphs within .parent
+ *
+ * Include margin of child elements
+ * From @KZeni : https://gist.github.com/KZeni/7225183
+ * $('.parent').equalize({equalize:'outerHeight', margin: true}); // include the bottom margin from the last child of element(s) being equalized
  */
 ;(function($) {
 
@@ -31,6 +35,7 @@
     var $containers = this, // this is the jQuery object
         children    = false,
         reset       = false,
+        margin      = false,
         equalize,
         type;
 
@@ -39,6 +44,7 @@
       equalize = options.equalize || 'height';
       children = options.children || false;
       reset    = options.reset || false;
+      margin   = options.margin || false;
     } else { // otherwise, a string was passed in or default to height
       equalize = options || 'height';
     }
@@ -58,6 +64,7 @@
             value;
         if (reset) { $element.css(type, ''); } // remove existing height/width dimension
         value = $element[equalize]();          // call height(), outerHeight(), etc.
+        if (margin && type == 'height') { value+= parseInt($element.find('> :last').css('marginBottom').replace('px','')); } // include the bottom margin from the last child of this element in the height
         if (value > max) { max = value; }      // update max
       });
 
