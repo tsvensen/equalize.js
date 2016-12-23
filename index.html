@@ -46,6 +46,10 @@ $('.parent').equalize({equalize: 'width', reset: true});</pre>
   <p>Equalize the .parent's child element. See @larsbo's <a href="http://jsfiddle.net/4QTNP/3/">example</a>.</p>
   <pre>$('.parent').equalize({children: 'p'}); // equalize height of paragraphs within .parent</pre>
 
+  <p>By setting clear to true the height/width will be removed.</p>
+  <pre>$('.parent').equalize({clear: true}); // default to clear height
+$('.parent').equalize({equalize: 'width', clear: true}); // clear width</pre>
+
   <h2>Height Example <a id="run-height" href="#height-example">run »</a></h2>
   <pre>$('#height-example').equalize(); // defaults to height</pre>
 
@@ -75,10 +79,27 @@ $('.parent').equalize({equalize: 'width', reset: true});</pre>
 
 
   <h2>Advanced Example <a id="run-advanced" href="#advanced-example">run »</a></h2>
-  <pre>$('#height-example').equalize({reset: true});</pre>
+  <pre>$('#advanced-example').equalize({reset: true});</pre>
   <p>Below the tallest div has a height of 200px, this will be removed before determining the max height, otherwise all elements would have a height of 200px.</p>
 
   <div id="advanced-example" class="example">
+    <div>equalize</div>
+    <div>equalize content height</div>
+    <div style="height:200px;">equalize</div>
+    <div>equalize</div>
+    <div>equalize</div>
+    <div>equalize content</div>
+    <div>equalize</div>
+    <div>equalize</div>
+    <div>equalize content height</div>
+    <div>equalize</div>
+  </div>
+
+  <h2>Clear Example <a id="run-clear" href="#clear-example">run »</a></h2>
+  <pre>$('#clear-example').equalize({reset: true});</pre>
+  <p>Below the tallest div has a height of 200px, this will be cleared.</p>
+
+  <div id="clear-example" class="example">
     <div>equalize</div>
     <div>equalize content height</div>
     <div style="height:200px;">equalize</div>
@@ -105,6 +126,8 @@ $('.parent').equalize({equalize: 'width', reset: true});</pre>
     if (this.id === 'run-advanced') {
       // reset all the heights to get the minimum max height
       $('#advanced-example').equalize({reset: true});
+    } else if (this.id === 'run-clear') {
+      $('#clear-example').equalize({clear: true}); // defaults to height
     } else if (this.id === 'run-height') {
       $('#height-example').equalize(); // defaults to height
     } else {
