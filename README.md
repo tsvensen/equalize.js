@@ -24,6 +24,9 @@ This advanced usage is for dynamic instances where equalize is ran after element
 Equalize the .parent's child element. See @larsbo's <a href="http://jsfiddle.net/4QTNP/3/">example</a>.
 <pre>$('.parent').equalize({children: 'p'}); // equalize height of paragraphs within .parent</pre>
 
+By setting clear to true the height/width will be removed.
+<pre>$('.parent').equalize({clear: true}); // default to clear height
+$('.parent').equalize({equalize: 'width', clear: true}); // clear width</pre>
 
 ## Examples
 

@@ -76,7 +76,7 @@ td { vertical-align: top; }
 
 
 /* =========================================================================
-   Primary Styles 
+   Primary Styles
    ========================================================================== */
 
 body { color: #333; padding-bottom: 3em; }
@@ -138,6 +138,7 @@ pre {
 }
 
 #advanced-example div,
+#clear-example div,
 #height-example div { width: 60px; }
 /* #width-example div { } */
 
@@ -174,7 +175,7 @@ pre {
 /* =============================================================================
    Print Styles
    ========================================================================== * /
- 
+
 @media print {
   * { background: transparent !important; color: black !important; box-shadow:none !important; text-shadow: none !important; filter:none !important; -ms-filter: none !important; } /* Black prints faster: h5bp.com/s * /
   a, a:visited { text-decoration: underline; }

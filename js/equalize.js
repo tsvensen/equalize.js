@@ -31,6 +31,7 @@
     var $containers = this, // this is the jQuery object
         children    = false,
         reset       = false,
+        clear       = false,
         equalize,
         type;
 
@@ -39,6 +40,7 @@
       equalize = options.equalize || 'height';
       children = options.children || false;
       reset    = options.reset || false;
+      clear    = options.clear || false;
     } else { // otherwise, a string was passed in or default to height
       equalize = options || 'height';
     }
@@ -56,12 +58,16 @@
       $children.each(function() {
         var $element = $(this),
             value;
-        if (reset) { $element.css(type, ''); } // remove existing height/width dimension
+        if (reset || destroy) { $element.css(type, ''); } // remove existing height/width dimension
         value = $element[equalize]();          // call height(), outerHeight(), etc.
         if (value > max) { max = value; }      // update max
       });
 
-      $children.css(type, max +'px'); // add CSS to children
+      if (destroy) {
+        $children.css(type, ''); // remove CSS from children
+      } else {
+        $children.css(type, max +'px'); // add CSS to children
+      } // destroy function
     });
   };
 
